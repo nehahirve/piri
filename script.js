@@ -8,7 +8,7 @@ const logo = document.getElementById('homepage')
 function splashOut () {
   splash.style.display = 'none'
   page.setAttribute('id', 'post-splash-visible')
-  logo.setAttribute('xlink:href', '#')
+  //logo.setAttribute('xlink:href', '#')
 }
 
 function reveal (event) {
@@ -30,4 +30,4 @@ if (chilli) {
 members.forEach(portrait => portrait.addEventListener('mouseenter', reveal))
 members.forEach(portrait => portrait.addEventListener('mouseleave', reveal))
 
-logo.addEventListener('click', homePage)
+//logo.addEventListener('click', homePage)
