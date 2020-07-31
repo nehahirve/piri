@@ -8,7 +8,7 @@ const logo = document.getElementById('homepage')
 function splashOut () {
   splash.style.display = 'none'
   page.setAttribute('id', 'post-splash-visible')
-  homePage.setAttribute('xlink:href', '#')
+  logo.setAttribute('xlink:href', '#')
 }
 
 function reveal (event) {
