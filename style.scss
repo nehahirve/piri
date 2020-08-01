@@ -9,18 +9,20 @@ $background: #FFFFFD;
   src: url("fonts/bb-book-regular.otf");
 }
 
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// main 
 
 html, body {
   background: $background;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 
 // splash page styling
 
@@ -28,7 +30,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 99vh;
+  overflow: hidden;
 }
 
 #splash-image {
@@ -47,7 +50,6 @@ a {
   display: none;
 }
 
-
 // page styling
 
 #post-splash-visible, #content {
@@ -58,22 +60,38 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90vh;
+  max-height: 2000px;
+}
+
+
+#container {
+  position: relative;
+  width: inherit;
+  
+}
+
+nav {
+  position: relative; 
+  width: inherit;
 }
 
 #navlist {
-
+  background: $background;
+  z-index: 10;
   display: flex;
-  justify-content: space-between;
-
-
+  align-items: center;
+  justify-content: space-around;
   div {
     font-family: BBBook, serif; 
   }
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-top: 50px;
 }
 
 #navleft {
-
   align-self: center;
   #members-nav {
     font-size: 2em;
@@ -84,36 +102,27 @@ a {
 }
 
 
-svg:hover path {
+img > svg:hover path {
   fill: $green;
 }
 
 
+
 main {
   padding-top: 50px;
-}
-
-footer {
-  margin-top: 20px;
-  flex-shrink: 0;
-  width: inherit;
-  height: 300px;
-  background-image: url('media/lab.jpg');
-  background-position: 50% 20%;
-}
-
-h1 {
-  font-family: 'Archivo Black';
-  margin-bottom: 20px;
-  font-size: 1.2em;
-}
-
-p, address {
-  margin-bottom: 20px;
-  font-size: 1.2em;
-  line-height: 18pt;
-  strong {
+  margin-top: 100px;
+  h1 {
     font-family: 'Archivo Black';
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  p, address {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 18pt;
+    strong {
+      font-family: 'Archivo Black';
+    }
   }
 }
 
@@ -125,15 +134,29 @@ p, address {
   color: $green;
 }
 
+footer {
+  margin-top: 20px;
+  flex-shrink: 0;
+  width: inherit;
+  height: 300px;
+  background-image: url('media/lab.jpg');
+  background-position: 50% 20%;
+}
+
 
 // Member page styling 
 
 #memberslist {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+  
 }
 
+
+.member {
+  position: relative;
+}
 
 .front {
   height: 300px;
@@ -144,25 +167,20 @@ p, address {
 
 .back {
   display: none;
-  
-}
-
-.member {
-  position: relative;
 }
 
 .information > a {
   text-decoration: underline;
 }
 
-.information > * {
-  font-family: 'Archivo Black';
-  line-height: 24pt;
-  
-}
-
 .information > a:hover {
   color: $green;
+}
+
+.information > * {
+  font-family: 'Archivo Black';
+  line-height: 22pt;
+  font-size: 0.9em;
 }
 
 .information {
@@ -185,15 +203,8 @@ p, address {
 	animation-duration: 0.5s;
 }
 
-@keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
 
+// media queries
 
 @media only screen and (max-width: 500px) {
   #memberslist {
@@ -208,4 +219,22 @@ p, address {
       height: auto;
     }
   }
+
+  #splash-image {
+    margin: auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img {
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+
+  .information > * {
+    line-height: 30pt;
+    font-size: 1.4em;
+  }
+
 }
